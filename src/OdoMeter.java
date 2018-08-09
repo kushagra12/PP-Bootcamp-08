@@ -35,9 +35,9 @@ public class OdoMeter {
 		int idxEnd = odoSeq.indexOf(end);
 
 		if(idxStart > idxEnd)
-			return odoSeq.size() - (idxEnd - idxStart);
+			return odoSeq.size() - (idxStart - idxEnd);
 
-		return 0;
+		return idxEnd - idxStart;
 	}
 	
 	public List<Integer> getOdoSeq() {
