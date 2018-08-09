@@ -8,7 +8,7 @@ import org.junit.Test;
 public class OdoMeterTest {
 
 	private OdoMeter odoMeter;
-	
+
 	@Test
 	public void testOneDigit() {
 		odoMeter = new OdoMeter(1);
@@ -32,5 +32,36 @@ public class OdoMeterTest {
 		assertFalse(NumberUtils.isAscOrder(2134));
 		assertTrue(NumberUtils.isAscOrder(5678));
 	}
-	
+
+	@Test
+	public void testOdometerNext(){
+		odoMeter = new OdoMeter(3);
+		assertEquals(124, odoMeter.next(123));
+		assertEquals(123, odoMeter.next(789));
+		assertEquals(478,odoMeter.next(469));
+	}
+
+	@Test
+	public void testOdometerNextN(){
+		odoMeter = new OdoMeter(3);
+		assertEquals(124, odoMeter.nextN(123,1));
+		assertEquals(127, odoMeter.nextN(789,5));
+		assertEquals(489,odoMeter.nextN(469,3));
+	}
+
+	@Test
+	public void testOdometerPrevious(){
+		odoMeter = new OdoMeter(4);
+		assertEquals(1234, odoMeter.next(1235));
+		assertEquals(3679, odoMeter.next(3689));
+		assertEquals(2456,odoMeter.next(2457));
+	}
+
+	@Test
+	public void testOdometerPreviousN(){
+		odoMeter = new OdoMeter(3);
+		assertEquals(789, odoMeter.nextN(123,1));
+		assertEquals(349, odoMeter.nextN(359,4));
+		assertEquals(478,odoMeter.nextN(489,2));
+	}
 }
