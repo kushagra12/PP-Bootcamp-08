@@ -29,7 +29,14 @@ public class OdoMeter {
 		return 0;
 	}
 	
-	public int diff(int num1, int num2) {
+	public int diff(int start, int end) {
+
+		int idxStart = odoSeq.indexOf(start);
+		int idxEnd = odoSeq.indexOf(end);
+
+		if(idxStart > idxEnd)
+			return odoSeq.size() - (idxEnd - idxStart);
+
 		return 0;
 	}
 	
