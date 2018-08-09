@@ -14,19 +14,19 @@ public class OdoMeter {
 	}
 
 	public int next(int num) {
-		return 0;
+		return nextN(num,1);
 	}
-	
+
 	public int previous(int num) {
-		return 0;
+		return previousN(num, 1);
 	}
-	
+
 	public int nextN(int num, int n) {
-		return 0;
+		return odoSeq.get(odoSeq.indexOf(num)+n);
 	}
-	
+
 	public int previousN(int num, int n) {
-		return 0;
+		return odoSeq.get(odoSeq.indexOf(num) - n);
 	}
 	
 	public int diff(int start, int end) {
